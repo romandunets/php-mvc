@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+	RewriteBase /
+	Options +FollowSymLinks
+	IndexIgnore */*
+	
+	RewriteEngine On
+	
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . index.php
+</IfModule>
+<IfModule !mod_rewrite.c>
+	ErrorDocument 404 index.php
+</IfModule>
